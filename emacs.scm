@@ -1,6 +1,6 @@
 ;; Emacs and Emacs packages
 (define emacs-packages
-  '("emacs"
+  '("emacs-pgtk"
     "emacs-helm"
     "emacs-helm-projectile"
     "emacs-which-key"

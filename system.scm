@@ -37,6 +37,9 @@
   ;; for packages and 'guix install PACKAGE' to install a package.
   (packages (append (list (specification->package "i3-wm")
                           (specification->package "i3status")
+                          (specification->package "niri")
+                          (specification->package "font-google-noto-emoji")
+                          (specification->package "alacritty")
                           (specification->package "dmenu")
                           (specification->package "st")) %base-packages))
 
