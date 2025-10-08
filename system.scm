@@ -9,10 +9,15 @@
 
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
-(use-modules (gnu))
+(use-modules (gnu)
+             (nongnu packages linux)
+             (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg)
 
 (operating-system
+  (kernel linux)
+  (initrd microcode-initrd)
+  (firmware (list linux-firmware))
   (locale "en_US.utf8")
   (timezone "America/Chicago")
   (keyboard-layout (keyboard-layout "us"))
