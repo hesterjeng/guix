@@ -1,7 +1,6 @@
 ;; General system packages
 (define general-packages
-  '("guix"
-    "pkg-config"
+  '("pkg-config"
     "rlwrap"
     "bzip2"
     "git"
