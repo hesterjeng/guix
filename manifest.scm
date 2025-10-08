@@ -5,6 +5,7 @@
     "bzip2"
     "git"
     "make"
+    "openssh"
     "patch"
     "unzip"
     "nss-certs"
