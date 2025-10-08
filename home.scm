@@ -35,6 +35,7 @@
                        ("la" . "ls -lah")
                        (".." . "cd ..")
                        ("..." . "cd ../..")
+                       ("claude" . "/home/john/.npm/prefix/bin/claude")
                        ("gs" . "git status")
                        ("gd" . "git diff")
                        ("gl" . "git log --oneline --graph --decorate")))
@@ -45,8 +46,6 @@
                        ("HISTFILESIZE" . "20000")
                        ("HISTCONTROL" . "ignoreboth:erasedups")
                        ("PATH" . "$HOME/.npm/prefix/bin:$PATH")))
-                    (bashrc
-                     '("xset s off -dpms"))
                     ;; (bash-profile
                     ;;  '("export PATH=\"$HOME/.npm/prefix/bin:$PATH\"\n"))
 		    ))
