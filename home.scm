@@ -45,6 +45,8 @@
                        ("HISTFILESIZE" . "20000")
                        ("HISTCONTROL" . "ignoreboth:erasedups")
                        ("PATH" . "$HOME/.npm/prefix/bin:$PATH")))
+                    (bashrc
+                     '("xset s off -dpms"))
                     ;; (bash-profile
                     ;;  '("export PATH=\"$HOME/.npm/prefix/bin:$PATH\"\n"))
 		    ))
