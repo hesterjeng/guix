@@ -45,7 +45,9 @@
   (services
    (cons* (service tlp-service-type)
           (service thermald-service-type)
-          (bluetooth-service #:auto-enable? #t)
+          (service bluetooth-service-type
+                   (bluetooth-configuration
+                    (auto-enable? #t)))
           (modify-services %desktop-services
             (elogind-service-type config =>
               (elogind-configuration
