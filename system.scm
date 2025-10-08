@@ -12,7 +12,7 @@
 (use-modules (gnu)
              (nongnu packages linux)
              (nongnu system linux-initrd))
-(use-service-modules cups desktop networking ssh xorg)
+(use-service-modules cups desktop networking ssh xorg pm)
 
 (operating-system
   (kernel linux)
@@ -43,7 +43,14 @@
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
-   %desktop-services)
+   (cons* (service tlp-service-type)
+          (service thermald-service-type)
+          (bluetooth-service #:auto-enable? #t)
+          (modify-services %desktop-services
+            (elogind-service-type config =>
+              (elogind-configuration
+                (inherit config)
+                (handle-lid-switch 'ignore))))))
   (bootloader (bootloader-configuration
                 (bootloader grub-efi-bootloader)
                 (targets (list "/boot/efi"))
