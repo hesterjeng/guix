@@ -6,6 +6,9 @@
   #:use-module (gnu home services)
   #:use-module (gnu home services shells)
   #:use-module (gnu home services shepherd)
+  #:use-module (gnu home services ssh)
+  #:use-module (gnu home services desktop)
+  #:use-module (gnu home services mcron)
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
   #:use-module (gnu system shadow)
@@ -46,11 +49,25 @@
                        ("HISTFILESIZE" . "20000")
                        ("HISTCONTROL" . "ignoreboth:erasedups")
                        ("PATH" . "$HOME/.npm/prefix/bin:$PATH")))
-                    ;; (bash-profile
-                    ;;  '("export PATH=\"$HOME/.npm/prefix/bin:$PATH\"\n"))
 		    ))
           ;(service home-fish-service-type)
           ;(service home-zsh-service-type)
+
+          ;; SSH agent service
+          (service home-ssh-agent-service-type)
+
+          ;; D-Bus service - needed for inter-process communication
+          (service home-dbus-service-type)
+
+          ;; Mcron service - scheduled job execution (cron-like)
+          (service home-mcron-service-type
+                   (home-mcron-configuration
+                    (jobs (list
+                           ;; Example: Clean up old files in ~/.cache/guix daily at 3am
+                           #~(job "0 3 * * *"
+                                  (lambda ()
+                                    (system* "find" (string-append (getenv "HOME") "/.cache/guix")
+                                             "-type" "f" "-mtime" "+30" "-delete")))))))
 
           (service home-files-service-type
            `((".guile" ,%default-dotguile)
