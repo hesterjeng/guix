@@ -42,6 +42,7 @@
                        ("claude" . "/home/john/.npm/prefix/bin/claude")
                        ("gs" . "git status")
                        ("gd" . "git diff")
+                       ("e" . "emacs -nw")
                        ("gl" . "git log --oneline --graph --decorate")))
                     (environment-variables
                      '(("EDITOR" . "emacsclient -c")

@@ -38,6 +38,7 @@
   (packages (append (list (specification->package "i3-wm")
                           (specification->package "i3status")
                           (specification->package "niri")
+                          (specification->package "emacs-exwm")
                           (specification->package "font-google-noto-emoji")
                           (specification->package "alacritty")
                           (specification->package "dmenu")
