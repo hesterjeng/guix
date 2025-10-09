@@ -6,6 +6,7 @@
     "emacs-which-key"
     "emacs-use-package"
     "emacs-dashboard"
+    "emacs-guix"
 
     ;; Evil mode
     "emacs-evil"
