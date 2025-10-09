@@ -7,6 +7,7 @@
     "emacs-use-package"
     "emacs-dashboard"
     "emacs-guix"
+    "emacs-gptel"
 
     ;; Evil mode
     "emacs-evil"
