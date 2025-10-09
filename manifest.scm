@@ -42,5 +42,8 @@
     "grep"
     "python-dateutil"
     "waybar"
+    "swaybg"
     "libxml2"
+    "autoconf"
     "emacs"))
+
