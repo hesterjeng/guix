@@ -19,7 +19,6 @@
     "glibc"
     "libgccjit"
     "python"
-    "opam"
     "python-wrapper"
     "direnv"
     "esbuild"
