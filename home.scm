@@ -7,6 +7,7 @@
   #:use-module (gnu home services shells)
   #:use-module (gnu home services shepherd)
   #:use-module (gnu home services ssh)
+  #:use-module (gnu services ssh)
   #:use-module (gnu home services desktop)
   #:use-module (gnu home services mcron)
   #:use-module (gnu services)
@@ -55,6 +56,11 @@
 
           ;; SSH agent service
           (service home-ssh-agent-service-type)
+
+          ;; SSH client configuration - automatically add keys to agent
+          (service home-openssh-service-type
+                   (home-openssh-configuration
+                    (add-keys-to-agent "yes")))
 
           ;; D-Bus service - needed for inter-process communication
           (service home-dbus-service-type)
