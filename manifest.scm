@@ -1,6 +1,9 @@
 ;; General system packages
 (define general-packages
   '("pkg-config"
+    "curl"
+    "bubblewrap"
+    "sed"
     "rlwrap"
     "bzip2"
     "git"
