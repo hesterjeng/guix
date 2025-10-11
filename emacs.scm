@@ -8,6 +8,7 @@
     "emacs-dashboard"
     "emacs-guix"
     "emacs-gptel"
+    "emacs-evil-collection"
 
     ;; Evil mode
     "emacs-evil"
