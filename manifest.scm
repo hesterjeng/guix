@@ -2,10 +2,13 @@
 (define general-packages
   '("pkg-config"
     "curl"
+    "ripgrep"
     "bubblewrap"
     "sed"
     "rlwrap"
     "bzip2"
+    "cmake"
+    "opam"
     "git"
     "make"
     "openssh"

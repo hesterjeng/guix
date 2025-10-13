@@ -2,6 +2,8 @@
 (define emacs-packages
   '("emacs-pgtk"
     "emacs-helm"
+    "emacs-helm"
+    "emacs-dumb-jump"
     "emacs-helm-projectile"
     "emacs-which-key"
     "emacs-use-package"
