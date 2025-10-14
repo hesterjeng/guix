@@ -8,7 +8,6 @@
     "rlwrap"
     "bzip2"
     "cmake"
-    "opam"
     "git"
     "make"
     "openssh"
