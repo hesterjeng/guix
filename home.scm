@@ -37,6 +37,7 @@
                     (aliases
                      '(("ll" . "ls -shalt")
                        ("la" . "ls -lah")
+		       ("cc" . "gcc")
                        (".." . "cd ..")
                        ("..." . "cd ../..")
                        ("claude" . "/home/john/.npm/prefix/bin/claude")
