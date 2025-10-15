@@ -44,6 +44,7 @@
                        ("gs" . "git status")
                        ("gd" . "git diff")
                        ("e" . "emacs -nw")
+                       ("bat" . "cat /sys/class/power_supply/BAT0/capacity")
                        ("gl" . "git log --oneline --graph --decorate")))
                     (environment-variables
                      '(("EDITOR" . "emacsclient -c")
@@ -55,12 +56,8 @@
                        ("PATH" . "$HOME/opam/bin:$PATH")
 		       ))
 		    ))
-          ;(service home-fish-service-type)
-          ;(service home-zsh-service-type)
-
           ;; SSH agent service
           (service home-ssh-agent-service-type)
-
           ;; SSH client configuration - automatically add keys to agent
           (service home-openssh-service-type
                    (home-openssh-configuration
