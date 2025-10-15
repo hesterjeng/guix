@@ -13,6 +13,7 @@
     "openssh"
     "patch"
     "unzip"
+    "gawk"
     "nss-certs"
     "glibc-locales"
     "gmp"
