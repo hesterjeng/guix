@@ -4,6 +4,7 @@
     "curl"
     "ripgrep"
     "bluez"
+    "flatpak"
     "bubblewrap"
     "sed"
     "rlwrap"

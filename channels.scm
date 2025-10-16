@@ -4,6 +4,10 @@
          (name 'guix)
          (url "https://codeberg.org/scrambler/guix")
          (branch "future"))
+;; (channel
+;;          (name 'nonguix)
+;;          (url "https://gitlab.com/nonguix/nonguix")
+;;          (branch "master"))
 )
 ;; (cons*
 ;; (channel
