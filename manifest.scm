@@ -3,6 +3,7 @@
   '("pkg-config"
     "curl"
     "ripgrep"
+    "bluez"
     "bubblewrap"
     "sed"
     "rlwrap"
