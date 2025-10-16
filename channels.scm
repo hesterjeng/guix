@@ -1,9 +1,9 @@
 (
  list 
 (channel
-         (name 'singlecommit_rebase)
+         (name 'guix)
          (url "https://codeberg.org/scrambler/guix")
-         (branch "singlecommit_rebase"))
+         (branch "future"))
 )
 ;; (cons*
 ;; (channel
