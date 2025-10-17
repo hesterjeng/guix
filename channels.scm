@@ -7,11 +7,11 @@
 ;;          (branch "future"))
 ;; )
 (cons*
-;; (channel
-;;          (name 'longleaf)
-;;          (url "https://github.com/hesterjeng/longleaf-channel")
-;;          (branch "master")
-;; 	 )
+(channel
+         (name 'longleaf)
+         (url "https://github.com/hesterjeng/longleaf-channel")
+         (branch "master")
+	 )
 (channel
          (name 'nonguix)
          (url "https://gitlab.com/nonguix/nonguix")
