@@ -54,7 +54,8 @@
                           (specification->package "bluez")
                           (specification->package "alacritty")
                           (specification->package "dmenu")
-                          (specification->package "st")) %base-packages))
+                          (specification->package "st")
+                          (specification->package "pulseaudio")) %base-packages))
 
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
