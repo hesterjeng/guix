@@ -2,8 +2,8 @@
  list 
 (channel
          (name 'guix)
-         ;; (url "https://codeberg.org/miramar/guix")
-         (url (string-append "file://" (getenv "HOME") "/Projects/guix"))
+         (url "https://codeberg.org/miramar/guix")
+         ;; (url (string-append "file://" (getenv "HOME") "/Projects/guix"))
          (branch "future")))
 ;; (channel
 ;;          (name 'nonguix)
