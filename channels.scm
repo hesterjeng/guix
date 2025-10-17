@@ -9,11 +9,14 @@
 (cons*
 (channel
          (name 'longleaf)
-         (url "https://github.com/hesterjeng/longleaf-channel"))
+         (url "https://github.com/hesterjeng/longleaf-channel")
+         (branch "master")
+	 )
 (channel
          (name 'nonguix)
          (url "https://gitlab.com/nonguix/nonguix")
-         (branch "master"))
+         (branch "master")
+	 )
 ;; ()
 %default-channels
 )
