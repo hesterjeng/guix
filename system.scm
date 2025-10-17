@@ -29,7 +29,7 @@
                   (comment "John")
                   (group "users")
                   (home-directory "/home/john")
-                  (supplementary-groups '("wheel" "netdev" "audio" "video")))
+                  (supplementary-groups '("wheel" "netdev" "audio" "video" "lp")))
                 %base-user-accounts))
 
   ;; Packages installed system-wide.  Users can also install packages
@@ -40,6 +40,7 @@
                           (specification->package "niri")
                           (specification->package "emacs-exwm")
                           (specification->package "font-google-noto-emoji")
+                          (specification->package "bluez")
                           (specification->package "alacritty")
                           (specification->package "dmenu")
                           (specification->package "st")) %base-packages))

@@ -6,6 +6,7 @@
   #:use-module (gnu home services)
   #:use-module (gnu home services shells)
   #:use-module (gnu home services shepherd)
+  #:use-module (gnu home services niri)
   #:use-module (gnu home services ssh)
   #:use-module (gnu services ssh)
   #:use-module (gnu home services desktop)
@@ -66,6 +67,9 @@
 
           ;; D-Bus service - needed for inter-process communication
           (service home-dbus-service-type)
+
+          ;; D-Bus service - needed for inter-process communication
+          (service home-niri-service-type)
 
           ;; Mcron service - scheduled job execution (cron-like)
           (service home-mcron-service-type
