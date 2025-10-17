@@ -45,6 +45,7 @@
                        ("gd" . "git diff")
                        ("e" . "emacs -nw")
                        ("bat" . "cat /sys/class/power_supply/BAT0/capacity")
+                       ("steam" . "flatpak run com.valvestofware.Steam")
                        ("gl" . "git log --oneline --graph --decorate")))
                     (environment-variables
                      '(("EDITOR" . "emacsclient -c")
