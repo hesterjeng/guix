@@ -42,6 +42,7 @@
                           (specification->package "xwayland-satellite")
                           (specification->package "mesa")
                           (specification->package "mesa-utils")
+                          (specification->package "alsa-utils")
                           (specification->package "vulkan-loader")
                           (specification->package "vulkan-tools")
                           (specification->package "xdg-desktop-portal")

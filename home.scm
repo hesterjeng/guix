@@ -16,6 +16,7 @@
   #:use-module (gnu system shadow)
   #:use-module (gnu packages)
   #:use-module (gnu packages emacs)
+  #:use-module (gnu packages pulseaudio)
   #:use-module (guix gexp))
 
 ;; Load package lists
@@ -71,6 +72,17 @@
 
           ;; D-Bus service - needed for inter-process communication
           (service home-niri-service-type)
+
+          ;; PulseAudio service - audio server
+          (simple-service 'pulseaudio
+                          home-shepherd-service-type
+                          (list (shepherd-service
+                                 (provision '(pulseaudio))
+                                 (requirement '(dbus))
+                                 (start #~(make-forkexec-constructor
+                                          (list #$(file-append pulseaudio "/bin/pulseaudio"))))
+                                 (stop #~(make-kill-destructor))
+                                 (documentation "PulseAudio sound server"))))
 
           ;; Mcron service - scheduled job execution (cron-like)
           (service home-mcron-service-type
