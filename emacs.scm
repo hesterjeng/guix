@@ -2,6 +2,8 @@
 (define emacs-packages
   '("emacs-pgtk"
     "emacs-helm"
+    "emacs-rich-minority"
+    "emacs-smart-mode-line"
     "emacs-helm"
     "emacs-dumb-jump"
     "emacs-helm-projectile"

@@ -39,6 +39,7 @@
                     (aliases
                      '(("ll" . "ls -shalt")
                        ("la" . "ls -lah")
+                       ("ls" . "ls -lsah")
 		       ("cc" . "gcc")
                        (".." . "cd ..")
                        ("..." . "cd ../..")
@@ -59,6 +60,10 @@
                        ("PATH" . "$HOME/.npm/prefix/bin:$PATH")
                        ("PATH" . "$HOME/opam/bin:$PATH")
 		       ))
+		    (bashrc
+		     (list
+		      (plain-file "direnv-hook"
+				  "eval \"$(direnv hook bash)\"")))
 		    ))
           ;; SSH agent service
           (service home-ssh-agent-service-type)
