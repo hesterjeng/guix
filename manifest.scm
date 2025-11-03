@@ -1,6 +1,8 @@
 ;; General system packages
 (define general-packages
   '("pkg-config"
+    "wl-clipboard"
+    "cliphist"
     "curl"
     "ripgrep"
     "bluez"
@@ -53,5 +55,7 @@
     "swaybg"
     "libxml2"
     "autoconf"
-    "emacs"))
+    "emacs"
+    "alsa-utils"
+    "whisper-cpp"))
 
