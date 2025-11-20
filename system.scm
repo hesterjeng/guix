@@ -66,6 +66,11 @@
           (service bluetooth-service-type
                    (bluetooth-configuration
                     (auto-enable? #t)))
+          ;; Increase locked memory limit for io_uring (needed by Eio/OCaml)
+          ;; Default 8KB is too low for modern io_uring applications
+          (service pam-limits-service-type
+                   (list
+                    (pam-limits-entry "*" 'both 'memlock 65536)))  ; 64 MB for all users
           (modify-services %desktop-services
             (elogind-service-type config =>
               (elogind-configuration
