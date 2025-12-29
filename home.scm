@@ -59,7 +59,7 @@
                        ("HISTCONTROL" . "ignoreboth:erasedups")
                        ("PATH" . "$HOME/.npm/prefix/bin:$PATH")
                        ("PATH" . "$HOME/opam/bin:$PATH")
-		       ))
+))
 		    (bashrc
 		     (list
 		      (plain-file "direnv-hook"
@@ -71,6 +71,11 @@
           (service home-openssh-service-type
                    (home-openssh-configuration
                     (add-keys-to-agent "yes")))
+
+          ;; Session-wide environment variables (for graphical apps like dmenu)
+          (simple-service 'flatpak-xdg-data-dirs
+                          home-environment-variables-service-type
+                          '(("XDG_DATA_DIRS" . "$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS")))
 
           ;; D-Bus service - needed for inter-process communication
           (service home-dbus-service-type)
