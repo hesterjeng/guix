@@ -58,6 +58,7 @@
                        ("HISTFILESIZE" . "20000")
                        ("HISTCONTROL" . "ignoreboth:erasedups")
                        ("PATH" . "$HOME/.npm/prefix/bin:$PATH")
+                       ("PATH" . "$HOME/.local/bin:$PATH")
                        ("PATH" . "$HOME/opam/bin:$PATH")
 ))
 		    (bashrc
