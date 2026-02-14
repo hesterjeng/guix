@@ -43,7 +43,7 @@
 		       ("cc" . "gcc")
                        (".." . "cd ..")
                        ("..." . "cd ../..")
-                       ("claude" . "/home/john/.npm/prefix/bin/claude")
+                       ;; ("claude" . "/home/john/.npm/prefix/bin/claude")
                        ("gs" . "git status")
                        ("gd" . "git diff")
                        ("e" . "emacs -nw")
