@@ -1,22 +1,20 @@
 ;; Emacs and Emacs packages
 (define emacs-packages
   '("emacs-pgtk"
-    "emacs-helm"
-    "emacs-rich-minority"
-    "emacs-smart-mode-line"
-    "emacs-helm"
-    "emacs-dumb-jump"
-    "emacs-helm-projectile"
-    "emacs-which-key"
     "emacs-use-package"
+
+    ;; UI
     "emacs-dashboard"
-    "emacs-guix"
-    "emacs-gptel"
-    "emacs-evil-collection"
+    "emacs-smart-mode-line"
+    "emacs-which-key"
+    "emacs-helm"
+    "emacs-helm-projectile"
 
     ;; Evil mode
     "emacs-evil"
     "emacs-evil-collection"
+    "emacs-undo-fu"
+    "emacs-general"
 
     ;; Completion and LSP
     "emacs-company"
@@ -27,15 +25,15 @@
 
     ;; Utilities
     "emacs-magit"
+    "emacs-magit-popup"
     "emacs-projectile"
-    "emacs-which-key"
-    "emacs-undo-fu"
-    "emacs-general"
+    "emacs-dumb-jump"
+    "emacs-guix"
+    "emacs-gptel"
 
     ;; OCaml
     "emacs-tuareg"
-    ;;"emacs-ocamlformat"
-    ;;"emacs-lsp-ocaml"
+    "ocaml-merlin"
 
     ;; TypeScript / JavaScript
     "emacs-typescript-mode"
@@ -44,11 +42,8 @@
     "emacs-prettier"
 
     ;; Python
-    ;;"emacs-elpy"
     "emacs-pyvenv"
-    ;;"emacs-lsp-pyright"
 
     ;; Scheme
     "emacs-geiser"
     "emacs-geiser-guile"))
-    ;;"emacs-quack"

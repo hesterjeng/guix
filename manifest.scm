@@ -55,7 +55,6 @@
     "swaybg"
     "libxml2"
     "autoconf"
-    "emacs"
     "alsa-utils"
     "whisper-cpp"))
 
