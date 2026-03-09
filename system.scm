@@ -12,7 +12,7 @@
 (use-modules (gnu)
              (nongnu packages linux)
              (nongnu system linux-initrd))
-(use-service-modules cups desktop networking ssh xorg pm)
+(use-service-modules cups desktop networking ssh xorg pm linux)
 
 (operating-system
   (kernel linux)
@@ -66,6 +66,7 @@
           (service bluetooth-service-type
                    (bluetooth-configuration
                     (auto-enable? #t)))
+          (service kernel-module-loader-service-type '("hidp"))
           ;; Increase locked memory limit for io_uring (needed by Eio/OCaml)
           ;; Default 8KB is too low for modern io_uring applications
           (service pam-limits-service-type
