@@ -42,7 +42,6 @@
     "solaar"
     "feh"
     "cabextract"
-    "esbuild"
     "neofetch"
     "bash"
     "which"
@@ -56,5 +55,37 @@
     "libxml2"
     "autoconf"
     "alsa-utils"
-    "whisper-cpp"))
+    "whisper-cpp"
+
+    ;; Desktop apps
+    "qutebrowser"
+    "thunar"
+    "pavucontrol"
+    "pulsemixer"
+    "blueman"
+    "piper"
+    "brightnessctl"
+    "btop"
+    "wlclock"
+    "wev"
+    "cbonsai"
+
+    ;; CLI tools
+    "jq"
+    "jless"
+    "rbw"
+    "keyd"
+
+    ;; AI — requires Longleaf channel
+    "claude-code"
+
+    ;; TeX
+    "texlive-scheme-full"
+    "texlive-xetex"
+
+    ;; Python (finance)
+    "python-fastapi"
+    "python-yfinance"
+    "python-quantstats"
+    "python-multitasking"))
 

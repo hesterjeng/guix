@@ -23,7 +23,20 @@
     "emacs-yasnippet"
     "emacs-flycheck"
 
+    ;; AI (Agent Shell)
+    ;; Backend `claude-code` is in the Longleaf channel (standalone CLI)
+    ;; Also requires: npm install -g @zed-industries/claude-agent-acp (ACP bridge for agent-shell)
+    "emacs-agent-shell"
+    "emacs-shell-maker"
+    ;; Fallback AI integration (uses vterm + MCP)
+    "emacs-claude-code-ide"
+    "emacs-vterm"
+
+    ;; Editing
+    "emacs-markdown-mode"
+
     ;; Utilities
+    "emacs-envrc"
     "emacs-magit"
     "emacs-magit-popup"
     "emacs-projectile"
