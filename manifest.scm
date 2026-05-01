@@ -23,7 +23,6 @@
     "glibc-locales"
     "gmp"
     "ta-lib"
-    "nlopt"
     "openssl"
     "libev"
     "gcc-toolchain"
@@ -76,9 +75,6 @@
     "rbw"
     "keyd"
 
-    ;; AI — requires Longleaf channel
-    "claude-code"
-
     ;; TeX
     "texlive-scheme-full"
     "texlive-xetex"
@@ -89,3 +85,4 @@
     "python-quantstats"
     "python-multitasking"))
 
+(specifications->manifest general-packages)
