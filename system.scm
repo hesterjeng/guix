@@ -76,7 +76,11 @@
             (elogind-service-type config =>
               (elogind-configuration
                 (inherit config)
-                (handle-lid-switch 'ignore))))))
+                (handle-lid-switch 'ignore)))
+            (network-manager-service-type config =>
+              (network-manager-configuration
+                (inherit config)
+                (dns "default"))))))
   (bootloader (bootloader-configuration
                 (bootloader grub-efi-bootloader)
                 (targets (list "/boot/efi"))
