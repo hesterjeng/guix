@@ -15,7 +15,7 @@
 (use-service-modules cups desktop networking ssh xorg pm linux)
 
 (operating-system
-  (kernel linux)
+  (kernel linux-7.0)
   (initrd microcode-initrd)
   (firmware (list linux-firmware))
   (locale "en_US.utf8")
@@ -73,6 +73,16 @@
                    (list
                     (pam-limits-entry "*" 'both 'memlock 65536)))  ; 64 MB for all users
           (modify-services %desktop-services
+            (guix-service-type config =>
+              (guix-configuration
+                (inherit config)
+                (substitute-urls
+                  (append (list "https://substitutes.nonguix.org")
+                          %default-substitute-urls))
+                (authorized-keys
+                  (append (list (plain-file "nonguix.pub"
+                                  "(public-key (ecc (curve Ed25519) (q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))"))
+                          %default-authorized-guix-keys))))
             (elogind-service-type config =>
               (elogind-configuration
                 (inherit config)
