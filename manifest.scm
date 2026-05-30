@@ -91,10 +91,6 @@
     "texlive-scheme-full"
     "texlive-xetex"
 
-    ;; Python (finance)
-    "python-fastapi"
-    "python-yfinance"
-    "python-quantstats"
-    "python-multitasking"))
+))
 
 (specifications->manifest general-packages)
