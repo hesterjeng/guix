@@ -74,6 +74,7 @@
     "jless"
     "rbw"
     "keyd"
+    "claude-code"
     "ncdu"
     "rclone"
     "cmatrix"
