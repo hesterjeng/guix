@@ -74,6 +74,18 @@
     "jless"
     "rbw"
     "keyd"
+    "ncdu"
+    "rclone"
+    "cmatrix"
+    "nsxiv"
+
+    ;; PDF / document viewers
+    "zathura"
+    "zathura-pdf-mupdf"
+    "mupdf"
+
+    ;; Virtualization
+    "qemu"
 
     ;; TeX
     "texlive-scheme-full"
