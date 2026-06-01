@@ -47,6 +47,7 @@
     ;; OCaml
     "emacs-tuareg"
     "ocaml-merlin"
+    "ocaml-lsp-server"  ; provides the `ocamllsp` binary used by lsp-mode
 
     ;; TypeScript / JavaScript
     "emacs-typescript-mode"
