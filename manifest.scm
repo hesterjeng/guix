@@ -77,6 +77,7 @@
     "claude-code"
     "ncdu"
     "rclone"
+    "rsync"
     "cmatrix"
     "nsxiv"
 

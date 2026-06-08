@@ -56,7 +56,12 @@
                           (specification->package "alacritty")
                           (specification->package "dmenu")
                           (specification->package "st")
-                          (specification->package "pulseaudio")) %base-packages))
+                          (specification->package "pulseaudio")
+                          (specification->package "fzf")
+                          (specification->package "fd")
+                          (specification->package "bat")
+                          (specification->package "eza")
+                          (specification->package "zoxide")) %base-packages))
 
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
@@ -72,6 +77,18 @@
           (service pam-limits-service-type
                    (list
                     (pam-limits-entry "*" 'both 'memlock 65536)))  ; 64 MB for all users
+          ;; Interactive-shell init for fzf (keybindings) and zoxide (cd hook).
+          ;; Dropped into /etc/bashrc.d/*.sh, sourced by /etc/bashrc for all users.
+          (simple-service 'cli-tool-init etc-bashrc-d-service-type
+            (list
+             ;; fzf ships .bash scripts; wrap them in a .sh so the bashrc.d glob picks them up
+             (mixed-text-file "fzf.sh"
+               "source " (file-append (specification->package "fzf")
+                                      "/etc/bashrc.d/fzf-completion.bash") "\n"
+               "source " (file-append (specification->package "fzf")
+                                      "/etc/bashrc.d/fzf-bindings.bash") "\n")
+             (plain-file "zoxide.sh"
+               "command -v zoxide >/dev/null && eval \"$(zoxide init bash)\"\n")))
           (modify-services %desktop-services
             (guix-service-type config =>
               (guix-configuration
