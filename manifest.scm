@@ -89,9 +89,13 @@
     ;; Virtualization
     "qemu"
 
-    ;; TeX
-    "texlive-scheme-full"
-    "texlive-xetex"
+    ;; TeX — minimal set for basic math papers (pdflatex + AMS math).
+    ;; Was texlive-scheme-full (~5GB); this is a few hundred MB and avoids
+    ;; re-downloading the whole distribution on every reconfigure.
+    "texlive-scheme-basic"              ; latex, pdftex core
+    "texlive-collection-latexrecommended" ; geometry, hyperref, graphics, etc.
+    "texlive-collection-mathscience"    ; amsmath, amsfonts, amscls, mathtools
+    "texlive-collection-fontsrecommended" ; Latin Modern / CM fonts for clean PDFs
 
 ))
 
