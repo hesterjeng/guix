@@ -29,7 +29,6 @@
     "glibc"
     "libgccjit"
     "python"
-    "python-wrapper"
     "direnv"
     "esbuild"
     "node"
