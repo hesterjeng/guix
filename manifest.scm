@@ -78,6 +78,7 @@
     "ncdu"
     "rclone"
     "rsync"
+    "mosh"
     "cmatrix"
     "nsxiv"
 

@@ -90,6 +90,9 @@
              (plain-file "zoxide.sh"
                "command -v zoxide >/dev/null && eval \"$(zoxide init bash)\"\n")))
           (modify-services %desktop-services
+            ;; Remove GDM; sessions are started manually from a TTY
+            ;; (see ~/.bash_profile, which execs niri on tty1).
+            (delete gdm-service-type)
             (guix-service-type config =>
               (guix-configuration
                 (inherit config)

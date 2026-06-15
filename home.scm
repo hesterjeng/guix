@@ -66,6 +66,16 @@
 		     (list
 		      (plain-file "direnv-hook"
 				  "eval \"$(direnv hook bash)\"")))
+		    ;; Auto-start the Wayland session on tty1 login (no display
+		    ;; manager).  Other TTYs stay as plain text consoles.
+		    (bash-profile
+		     (list
+		      (plain-file "niri-autostart"
+				  (string-append
+				   "if [ -z \"$WAYLAND_DISPLAY\" ] "
+				   "&& [ \"$(tty)\" = \"/dev/tty1\" ]; then\n"
+				   "  exec niri --session\n"
+				   "fi\n"))))
 		    ))
           ;; SSH agent service
           (service home-ssh-agent-service-type)
