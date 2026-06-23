@@ -1,0 +1,1 @@
+This is a configuration for the declarative package manager and system manager tool Guix.  With this tool I can easily reproduce my environment across different computers and VPS on different providers.
