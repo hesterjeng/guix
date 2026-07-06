@@ -57,6 +57,7 @@
 
     ;; Desktop apps
     "qutebrowser"
+    "qtwayland"       ; native Wayland platform plugin (fixes blurry Qt on niri)
     "thunar"
     "pavucontrol"
     "pulsemixer"

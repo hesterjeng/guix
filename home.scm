@@ -89,6 +89,13 @@
                           home-environment-variables-service-type
                           '(("XDG_DATA_DIRS" . "$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS")))
 
+          ;; Run Qt apps (qutebrowser) as native Wayland clients instead of
+          ;; XWayland, so they render crisply under niri's scaling.  Falls
+          ;; back to xcb when not in a Wayland session.
+          (simple-service 'qt-wayland
+                          home-environment-variables-service-type
+                          '(("QT_QPA_PLATFORM" . "wayland;xcb")))
+
           ;; D-Bus service - needed for inter-process communication
           (service home-dbus-service-type)
 
