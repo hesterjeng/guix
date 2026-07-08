@@ -49,7 +49,6 @@
                        ("e" . "emacs -nw")
                        ("battery" . "cat /sys/class/power_supply/BAT0/capacity")
                        ("steam" . "flatpak run com.valvesoftware.Steam")
-                       ("firefox" . "flatpak run org.mozilla.firefox")
                        ("gl" . "git log --oneline --graph --decorate")
                        ("mic" . "pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-source-mute @DEFAULT_SOURCE@")))
                     (environment-variables

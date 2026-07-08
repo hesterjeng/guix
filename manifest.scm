@@ -56,6 +56,7 @@
     "whisper-cpp"
 
     ;; Desktop apps
+    "firefox"
     "qutebrowser"
     "qtwayland"       ; native Wayland platform plugin (fixes blurry Qt on niri)
     "thunar"
@@ -81,6 +82,10 @@
     "mosh"
     "cmatrix"
     "nsxiv"
+    "perf"            ; performance profiling / tracing
+    "crush"           ; AI coding CLI
+    "graphviz"        ; dot graph rendering
+    "mailutils"       ; mail CLI
 
     ;; PDF / document viewers
     "zathura"
