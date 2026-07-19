@@ -36,6 +36,7 @@
     "tmux"
     "htop"
     "vlc"
+    "steam"           ; nonguix — runs in FHS container wrapper
     "bison"
     "solaar"
     "feh"
@@ -69,6 +70,10 @@
     "wlclock"
     "wev"
     "cbonsai"
+
+    ;; Fonts — broad script coverage so browsers render foreign text (CJK, etc.)
+    "font-google-noto"           ; most world scripts (Arabic, Thai, Cyrillic, ...)
+    "font-google-noto-sans-cjk"  ; Chinese / Japanese / Korean
 
     ;; CLI tools
     "jq"
