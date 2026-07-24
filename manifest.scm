@@ -61,6 +61,16 @@
     "qutebrowser"
     "qtwayland"       ; native Wayland platform plugin (fixes blurry Qt on niri)
     "thunar"
+
+    ;; Niri compositor + desktop integration.  Previously pulled in by
+    ;; home-niri-service-type; declared here directly since that service is no
+    ;; longer used (it also registered a shepherd launcher that raced the
+    ;; `exec niri' in ~/.bash_profile and broke the first login).
+    "niri"
+    "xwayland-satellite"   ; run X11 clients under niri
+    "xdg-desktop-portal"   ; portals: file pickers, screenshare, etc.
+    "xdg-desktop-portal-gtk"
+    "xdg-desktop-portal-gnome"
     "pavucontrol"
     "pulsemixer"
     "blueman"
