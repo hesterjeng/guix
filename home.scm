@@ -63,29 +63,9 @@
 		     (list
 		      (plain-file "direnv-hook"
 				  "eval \"$(direnv hook bash)\"")))
-		    ;; Auto-start the Wayland session on tty1 login (no display
-		    ;; manager).  Other TTYs stay as plain text consoles.
-		    (bash-profile
-		     (list
-		      (plain-file "niri-autostart"
-				  (string-append
-				   "if [ -z \"$WAYLAND_DISPLAY\" ] "
-				   "&& [ \"$(tty)\" = \"/dev/tty1\" ]; then\n"
-				   ;; ~/.profile's on-first-login starts the Home
-				   ;; shepherd, which provides the session D-Bus bus
-				   ;; that niri --session needs.  On the very first
-				   ;; login the shepherd is still coming up, so wait
-				   ;; for its socket and make sure dbus is running
-				   ;; before starting the compositor -- otherwise the
-				   ;; first login races dbus and fails.
-				   "  tries=0\n"
-				   "  while [ ! -S \"$XDG_RUNTIME_DIR/shepherd/socket\" ] "
-				   "&& [ \"$tries\" -lt 100 ]; do\n"
-				   "    sleep 0.1; tries=$((tries+1))\n"
-				   "  done\n"
-				   "  herd start dbus >/dev/null 2>&1\n"
-				   "  exec niri --session\n"
-				   "fi\n"))))
+		    ;; Niri is launched by greetd (tuigreet) at the system level
+		    ;; (see system.scm); no compositor autostart from the shell.
+		    ;; Text logins on tty1-6 stay plain consoles.
 		    ))
           ;; SSH agent service
           (service home-ssh-agent-service-type)

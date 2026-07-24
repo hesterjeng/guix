@@ -10,6 +10,7 @@
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
 (use-modules (gnu)
+             (guix gexp)
              (nongnu packages linux)
              (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg pm linux)
@@ -89,9 +90,29 @@
                                       "/etc/bashrc.d/fzf-bindings.bash") "\n")
              (plain-file "zoxide.sh"
                "command -v zoxide >/dev/null && eval \"$(zoxide init bash)\"\n")))
+          ;; greetd: minimal seat-aware login manager.  Runs tuigreet on VT7,
+          ;; which authenticates and launches niri inside a proper elogind
+          ;; session (replaces the fragile ~/.bash_profile 'exec niri' on
+          ;; tty1).  The niri session runs under a login shell so it inherits
+          ;; the Guix Home environment (PATH, DBUS, on-first-login shepherd).
+          ;; Text logins remain available on tty1-6.
+          (service greetd-service-type
+            (greetd-configuration
+              (terminals
+               (list (greetd-terminal-configuration
+                      (terminal-vt "7")
+                      (terminal-switch #t)
+                      (default-session-command
+                        (program-file
+                         "tuigreet-niri"
+                         #~(execl #$(file-append (specification->package "tuigreet")
+                                                 "/bin/tuigreet")
+                                  "tuigreet" "--time" "--remember"
+                                  "--cmd"
+                                  "bash -l -c 'herd start dbus >/dev/null 2>&1; exec niri --session'"))))))))
           (modify-services %desktop-services
-            ;; Remove GDM; sessions are started manually from a TTY
-            ;; (see ~/.bash_profile, which execs niri on tty1).
+            ;; Remove GDM; login is handled by greetd (tuigreet on VT7),
+            ;; which launches niri in a proper elogind session.
             (delete gdm-service-type)
             (guix-service-type config =>
               (guix-configuration
