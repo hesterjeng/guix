@@ -125,7 +125,15 @@
 
           (service home-xdg-configuration-files-service-type
            `(("gdb/gdbinit" ,%default-gdbinit)
-             ("nano/nanorc" ,%default-nanorc)))
+             ("nano/nanorc" ,%default-nanorc)
+             ;; Pin the GTK portal backend for the file picker.  Under niri
+             ;; (XDG_CURRENT_DESKTOP=niri) no backend declares UseIn=niri, so
+             ;; xdg-desktop-portal would otherwise pick a backend arbitrarily
+             ;; and Firefox's Attach/file-upload dialog would silently never
+             ;; open.  Forcing gtk fixes it.
+             ("xdg-desktop-portal/portals.conf"
+              ,(plain-file "portals.conf"
+                "[preferred]\ndefault=gtk\norg.freedesktop.impl.portal.FileChooser=gtk\n"))))
 
           ;; (simple-service 'emacs-server
           ;;                 home-shepherd-service-type
