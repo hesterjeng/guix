@@ -9,6 +9,7 @@
   #:use-module (gnu home services ssh)
   #:use-module (gnu services ssh)
   #:use-module (gnu home services desktop)
+  #:use-module (gnu home services sound)
   #:use-module (gnu home services mcron)
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
@@ -98,16 +99,28 @@
           ;; below (which owns the tty1 seat), its packages are declared in
           ;; manifest.scm, and niri config lives in ~/.config/niri/config.kdl.
 
-          ;; PulseAudio service - audio server
-          (simple-service 'pulseaudio
-                          home-shepherd-service-type
-                          (list (shepherd-service
-                                 (provision '(pulseaudio))
-                                 (requirement '(dbus))
-                                 (start #~(make-forkexec-constructor
-                                          (list #$(file-append pulseaudio "/bin/pulseaudio"))))
-                                 (stop #~(make-kill-destructor))
-                                 (documentation "PulseAudio sound server"))))
+          ;; Audio server: PipeWire (replaces the PulseAudio service below).
+          ;; PipeWire also carries the ScreenCast video stream that the
+          ;; xdg-desktop-portal ScreenCast backend needs for screen sharing
+          ;; (Firefox/Chromium/Electron on Wayland) -- PulseAudio cannot.
+          ;; home-pipewire-service-type runs pipewire + pipewire-pulse +
+          ;; wireplumber; pipewire-pulse exposes the same PulseAudio socket,
+          ;; so pavucontrol/pulsemixer and libpulse apps work unchanged.
+          (service home-pipewire-service-type)
+
+          ;; PulseAudio service - audio server.  Kept commented as a fallback:
+          ;; if PipeWire misbehaves, `guix home roll-back' reverts the running
+          ;; generation, and re-enabling this (plus removing the pipewire
+          ;; service above) restores the previous setup.
+          ;; (simple-service 'pulseaudio
+          ;;                 home-shepherd-service-type
+          ;;                 (list (shepherd-service
+          ;;                        (provision '(pulseaudio))
+          ;;                        (requirement '(dbus))
+          ;;                        (start #~(make-forkexec-constructor
+          ;;                                 (list #$(file-append pulseaudio "/bin/pulseaudio"))))
+          ;;                        (stop #~(make-kill-destructor))
+          ;;                        (documentation "PulseAudio sound server"))))
 
           ;; Mcron service - scheduled job execution (cron-like)
           (service home-mcron-service-type
@@ -131,9 +144,17 @@
              ;; xdg-desktop-portal would otherwise pick a backend arbitrarily
              ;; and Firefox's Attach/file-upload dialog would silently never
              ;; open.  Forcing gtk fixes it.
+             ;; ScreenCast/Screenshot -> wlr backend (xdg-desktop-portal-wlr)
+             ;; for screen sharing on niri; PipeWire (home-pipewire-service-type)
+             ;; carries the video stream.  FileChooser stays on gtk.
              ("xdg-desktop-portal/portals.conf"
               ,(plain-file "portals.conf"
-                "[preferred]\ndefault=gtk\norg.freedesktop.impl.portal.FileChooser=gtk\n"))))
+                (string-append
+                 "[preferred]\n"
+                 "default=gtk\n"
+                 "org.freedesktop.impl.portal.FileChooser=gtk\n"
+                 "org.freedesktop.impl.portal.ScreenCast=wlr\n"
+                 "org.freedesktop.impl.portal.Screenshot=wlr\n")))))
 
           ;; (simple-service 'emacs-server
           ;;                 home-shepherd-service-type

@@ -6,7 +6,7 @@
     ;; UI
     "emacs-dashboard"
     "emacs-smart-mode-line"
-    "emacs-which-key"
+    ;; which-key is built into Emacs core as of Emacs 30 — package removed from Guix
     "emacs-helm"
     "emacs-helm-projectile"
     "emacs-helm-lsp"          ; helm interface to LSP workspace symbols
@@ -46,7 +46,7 @@
 
     ;; Utilities
     "emacs-envrc"
-    "emacs-editorconfig"      ; honor per-repo .editorconfig settings
+    ;; editorconfig is built into Emacs core as of Emacs 30 — package removed from Guix
     "emacs-ws-butler"         ; trim trailing whitespace only on edited lines
     "emacs-diff-hl"           ; git change indicators in the fringe (magit-aware)
     "emacs-magit"

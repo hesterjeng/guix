@@ -70,6 +70,7 @@
     "xwayland-satellite"   ; run X11 clients under niri
     "xdg-desktop-portal"   ; portals: file pickers, screenshare, etc.
     "xdg-desktop-portal-gtk"
+    "xdg-desktop-portal-wlr"  ; ScreenCast/Screenshot backend for screen sharing on niri
     "pavucontrol"
     "pulsemixer"
     "blueman"
