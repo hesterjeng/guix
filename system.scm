@@ -16,7 +16,7 @@
 (use-service-modules cups desktop networking ssh xorg pm linux)
 
 (operating-system
-  (kernel linux-7.0)
+  (kernel linux)
   (initrd microcode-initrd)
   (firmware (list linux-firmware))
   (locale "en_US.utf8")
