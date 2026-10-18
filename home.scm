@@ -70,10 +70,19 @@
 		    ))
           ;; SSH agent service
           (service home-ssh-agent-service-type)
-          ;; SSH client configuration - automatically add keys to agent
+          ;; SSH client configuration - automatically add keys to agent.
+          ;; Keepalives stop idle tunnels (-L) from being dropped by NAT;
+          ;; after 3 missed replies (~90s) ssh exits instead of hanging.
           (service home-openssh-service-type
                    (home-openssh-configuration
-                    (add-keys-to-agent "yes")))
+                    (add-keys-to-agent "yes")
+                    (hosts
+                     (list (openssh-host
+                            (name "*")
+                            (extra-content "  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  ExitOnForwardFailure yes
+"))))))
 
           ;; Session-wide environment variables (for graphical apps like dmenu)
           (simple-service 'flatpak-xdg-data-dirs
