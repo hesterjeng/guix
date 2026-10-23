@@ -16,6 +16,7 @@
   #:use-module (gnu system shadow)
   #:use-module (gnu packages)
   #:use-module (gnu packages emacs)
+  #:use-module (gnu packages claude-code)
   #:use-module (gnu packages pulseaudio)
   #:use-module (guix gexp))
 
