@@ -143,6 +143,7 @@
 
           (service home-files-service-type
            `((".guile" ,%default-dotguile)
+	     (".local/bin/claude" ,(file-append claude-code "/bin/claude"))
              (".Xdefaults" ,%default-xdefaults)))
 
           (service home-xdg-configuration-files-service-type
